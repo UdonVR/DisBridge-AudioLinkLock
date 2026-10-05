@@ -1,0 +1,13 @@
+name: Release Package
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch: # <--- Adds a manual "Run workflow" button in GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  call-shared-build:
+    uses: UdonVR/VCC-VPM-Packager/.github/workflows/build-vpm-package.yml@main
