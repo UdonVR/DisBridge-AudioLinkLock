@@ -1,0 +1,20 @@
+{
+    "name": "UdonVR.DisBridgeAudioLinkLock",
+    "rootNamespace": "",
+    "references": [
+        "GUID:58281da7f948e9644aceb5d0178bf06b",
+        "GUID:332ecdb5ec920c44daf4734dfc14ee33",
+        "GUID:6490804aa441dfe4b88eb56cccbdf081",
+        "GUID:3c1bc1267eab5884ebe7f232c09ee0d9",
+        "GUID:99835874ee819da44948776e0df4ff1d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
