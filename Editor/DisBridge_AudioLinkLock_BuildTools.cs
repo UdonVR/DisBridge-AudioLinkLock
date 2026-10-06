@@ -26,7 +26,13 @@ namespace UdonVR.DisBridgeAudioLinkLock.Editors
             ProcessAL(_myScript);
             if (_myScript.AL_BoxCollider != null) _myScript.AL_BoxCollider.enabled = false;
             if (_myScript.AL_Raycaster   != null) _myScript.AL_Raycaster.enabled = false;
-            if (_myScript.AL_Pickup      != null) _myScript.AL_Pickup.pickupable = false;
+            if (_myScript.AL_Pickup != null)
+            {
+                foreach (VRC_Pickup pickup in _myScript.AL_Pickup)
+                {
+                    pickup.pickupable = false;
+                }
+            }
         }
 
         public static void ProcessAL(DisBridge_AudioLinkLock _myScript)
@@ -62,11 +68,16 @@ namespace UdonVR.DisBridgeAudioLinkLock.Editors
             else
             { Debug.Log($"[AudioLinkLock][Build] AL_Raycaster was found on object {AL_Raycaster.gameObject.name}", AL_Raycaster.gameObject); }
             
-            VRC_Pickup AL_Pickup = _al.gameObject.GetComponentInChildren<VRC_Pickup>(true);
+            VRC_Pickup[] AL_Pickup = _al.gameObject.GetComponentsInChildren<VRC_Pickup>(true);
             if (AL_Pickup == null)
             { Debug.LogWarning("[AudioLinkLock][Build] AL_Pickup was not found! If you removed the pickup, then this is fine."); }
             else
-            { Debug.Log($"[AudioLinkLock][Build] AL_Pickup was found on object {AL_Pickup.gameObject.name}", AL_Pickup.gameObject); }
+            {
+                foreach (VRC_Pickup pickup in AL_Pickup)
+                {
+                    Debug.Log($"[AudioLinkLock][Build] AL_Pickup was found on object {pickup.gameObject.name}", pickup.gameObject);
+                }
+            }
 
             _myScript.AL_BoxCollider = AL_BoxCollider;
             _myScript.AL_Raycaster = AL_Raycaster;

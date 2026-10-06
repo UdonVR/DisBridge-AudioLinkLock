@@ -14,7 +14,7 @@ namespace UdonVR.DisBridgeAudioLinkLock
         public bool autoSetup = true;
         [SerializeField] public GraphicRaycaster AL_Raycaster;
         [SerializeField] public BoxCollider AL_BoxCollider;
-        [SerializeField] public VRC_Pickup AL_Pickup;
+        [SerializeField] public VRC_Pickup[] AL_Pickup;
 
         private void Start()
         {
@@ -38,7 +38,13 @@ namespace UdonVR.DisBridgeAudioLinkLock
             bool _unlock = _IsMemberInRoles(Networking.LocalPlayer);
             if (Utilities.IsValid(  AL_Raycaster)) AL_Raycaster.enabled = _unlock;
             if (Utilities.IsValid(AL_BoxCollider)) AL_BoxCollider.enabled = _unlock;
-            if (Utilities.IsValid(     AL_Pickup)) AL_Pickup.pickupable = _unlock;
+            if (Utilities.IsValid(AL_Pickup))
+            {
+                for (int i = 0; i < AL_Pickup.Length; i++)
+                {
+                    if (Utilities.IsValid(AL_Pickup[i])) AL_Pickup[i].pickupable = _unlock;
+                }
+            }
         }
     }
 }

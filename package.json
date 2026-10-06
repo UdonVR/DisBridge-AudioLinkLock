@@ -1,7 +1,7 @@
 {
   "name": "com.udonvr.disbridge.audiolinklock",
   "displayName": "UdonVR - DisBridge - AudioLink Lock",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "unity": "2022.3",
   "description": "DisBridge Permission lock for AudioLink",
   "author": {

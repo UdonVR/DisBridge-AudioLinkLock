@@ -677,7 +677,7 @@ MonoBehaviour:
       Data: 39|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: VRC.SDKBase.VRC_Pickup, VRCSDKBase
+      Data: VRC.SDKBase.VRC_Pickup[], VRCSDKBase
     - Name: 
       Entry: 8
       Data: 
@@ -686,7 +686,7 @@ MonoBehaviour:
       Data: 40|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: VRC.SDK3.Components.VRCPickup, VRCSDK3
+      Data: VRC.SDK3.Components.VRCPickup[], VRCSDK3
     - Name: 
       Entry: 8
       Data: 
