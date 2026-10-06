@@ -89,11 +89,15 @@ namespace UdonVR.DisBridgeAudioLinkLock.Editors
         {
             BoxCollider AL_BoxCollider = AL_UiShape.GetComponent<BoxCollider>();
             GraphicRaycaster AL_Raycaster = AL_UiShape.GetComponent<GraphicRaycaster>();
+            VRC_Pickup AL_Pickup = al_controller.gameObject.GetComponentInChildren<VRC_Pickup>(true);
+            
             EditorGUI.BeginDisabledGroup(true);
             EditorGUILayout.ObjectField(al_controller, typeof(GameObject), true);
             EditorGUILayout.ObjectField(AL_Raycaster, typeof(GraphicRaycaster), true);
             EditorGUILayout.ObjectField(AL_BoxCollider, typeof(BoxCollider), true);
+            EditorGUILayout.ObjectField(AL_Pickup, typeof(VRC_Pickup), true);
             EditorGUI.EndDisabledGroup();
+            
             if (AL_BoxCollider == null && AL_Raycaster == null)
             {
                 EditorGUILayout.HelpBox("Missing both [GraphicRaycaster] and [BoxCollider]\nAuto setup will not work",
@@ -115,6 +119,13 @@ namespace UdonVR.DisBridgeAudioLinkLock.Editors
                     "[GraphicRaycaster] is missing. This is unusual, something is probably wrong.\nmake sure to double check in game!",
                     MessageType.Error);
                 return;
+            }
+
+            if (AL_Pickup == null)
+            {
+                EditorGUILayout.HelpBox(
+                    "[VRC_Pickup] is missing. If you removed the pickup, this is fine.",
+                    MessageType.Warning);
             }
 
             EditorGUILayout.HelpBox("Everything looks good!", MessageType.Info);
