@@ -110,9 +110,16 @@ namespace UdonVR.DisBridgeAudioLinkLock.Editors
 
             if (AL_BoxCollider == null && AL_Raycaster != null)
             {
+                GUILayout.BeginHorizontal();
                 EditorGUILayout.HelpBox(
                     "[BoxCollider] is missing but should get automatically added by the canvas's [VRC_UiShape].\nAuto setup will most likely still succeed!\nmake sure to double check in game!",
                     MessageType.Warning);
+                
+                if (GUILayout.Button("Auto Fix", GUILayout.Width(90), GUILayout.ExpandHeight(true)))
+                {
+                    DisBridge_AudioLinkLock_Helpers.CreateUiCollider(AL_UiShape);
+                }
+                GUILayout.EndHorizontal();
                 return;
             }
 
